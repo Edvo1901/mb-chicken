@@ -5,7 +5,7 @@ A simple chicken job that support QBCore Framework (with processing step and sel
 This script IS NOT belong to me, I re-write it from a repo on Github [(original script)](https://github.com/boomer1111/qbus-chickenjob-svrp-style). However, this is nearly re-write and optimise nearly everything so I do hope you enjoy the script :)
 
 # Features
-[PREVIEW](https://youtu.be/eDQquCV6ylw)
+[PREVIEW](https://youtu.be/tqXSLSRVTow)
 
 # Support
 Join our discord today for latest update and faster support:
@@ -26,5 +26,8 @@ Join our discord today for latest update and faster support:
 
 # Bugs/Optimise report
 If you find any bugs or have any suggestion, feel free to open an "Issues" on Github or simply join my Discord for support
+
+# Other script
+Check out my other script at: https://guess-project.tebex.io/
 
 
