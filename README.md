@@ -1,9 +1,6 @@
 # MB-CHICKEN
 A simple chicken job that support QBCore Framework (with processing step and selling location). This script will bring a new job to your roleplay server
 
-# Disclaimer
-This script IS NOT belong to me, I re-write it from a repo on Github [(original script)](https://github.com/boomer1111/qbus-chickenjob-svrp-style). However, this is nearly re-write and optimise nearly everything so I do hope you enjoy the script :)
-
 # Features
 [PREVIEW](https://youtu.be/tqXSLSRVTow)
 
