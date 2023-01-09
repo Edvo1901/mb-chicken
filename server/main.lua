@@ -36,11 +36,13 @@ RegisterNetEvent('mb-chicken:server:SellingMoney', function()
 	local price = 0
 	if xPlayer.PlayerData.items ~= nil and next(xPlayer.PlayerData.items) ~= nil then
         for k, v in pairs(xPlayer.PlayerData.items) do
-			local amount = xPlayer.PlayerData.items[k].amount
-            if xPlayer.PlayerData.items[k] ~= nil then
-				xPlayer.Functions.RemoveItem('packagedchicken', amount)
-				TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['packagedchicken'], "remove")
-				price = Config.Selling["price"] * amount
+        	if v.name:lower() == 'packagedchicken' then
+				local amount = xPlayer.PlayerData.items[k].amount
+	            if xPlayer.PlayerData.items[k] ~= nil then
+					xPlayer.Functions.RemoveItem('packagedchicken', amount)
+					TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['packagedchicken'], "remove")
+					price = price + Config.Selling["price"] * amount
+				end
 			end
 		end
 		xPlayer.Functions.AddMoney(Config.Selling["money_type"], price, "sold-chicken")
