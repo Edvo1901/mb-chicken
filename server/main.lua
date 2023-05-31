@@ -34,18 +34,16 @@ RegisterNetEvent('mb-chicken:server:SellingMoney', function()
 	local src = source
 	local xPlayer = QBCore.Functions.GetPlayer(src)
 	local price = 0
-	if xPlayer.PlayerData.items ~= nil and next(xPlayer.PlayerData.items) ~= nil then
-        for k, v in pairs(xPlayer.PlayerData.items) do
-        	if v.name:lower() == 'packagedchicken' then
-				local amount = xPlayer.PlayerData.items[k].amount
-	            if xPlayer.PlayerData.items[k] ~= nil then
-					xPlayer.Functions.RemoveItem('packagedchicken', amount)
-					TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['packagedchicken'], "remove")
-					price = price + Config.Selling["price"] * amount
-				end
-			end
+	if xPlayer then
+		local sellItem = xPlayer.Functions.GetItemByName("packagedchicken")
+		local amountItem = sellItem.amount
+
+		price = Config.Selling["price"] * amountItem
+		if price > 0 then
+			xPlayer.Functions.RemoveItem("packagedchicken", amountItem)
+			TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['packagedchicken'], "remove")
+			xPlayer.Functions.AddMoney(Config.Selling["money_type"], price, "sold-chicken")
+			MBNotify(Lang:t("notify.title"), Lang:t("success.sold_chicken", {price = price}), "success", source)
 		end
-		xPlayer.Functions.AddMoney(Config.Selling["money_type"], price, "sold-chicken")
-		MBNotify(Lang:t("notify.title"), Lang:t("success.sold_chicken", {price = price}), "success", source)
 	end
 end)
